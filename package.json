@@ -1,11 +1,9 @@
 {
   "name": "giko",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "build": "react-scripts build",
-    "start-server": "cd assets/js && node server.js",
-    "build-and-start": "./build_and_start.sh"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
