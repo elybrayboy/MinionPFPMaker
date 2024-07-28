@@ -10,7 +10,7 @@ $(document).ready(function() {
         var se = nw.clone();
         
         // Assign Draggable
-        if (viewportWidth < 900) {	
+        if (viewportWidth < 900) {    
             $('.box-wrapper').draggable({
                 cancel: ".ui-rotatable-handle",
                 scroll: false,
@@ -79,13 +79,12 @@ $(document).ready(function() {
             var imageData = newCanvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
 
             $.ajax({
-                url: "http://localhost:3000/upload",
-                data: {imgBase64: canvas.toDataURL("image/jpeg")},
+                url: "https://giko-pfp-backend-225b23dfe9b5.herokuapp.com/upload",
+                data: { imgBase64: newCanvas.toDataURL("image/jpeg") },
                 type: "POST",
                 success: function() {
                     $('#loading').css('opacity', '0');
-                    $('a.touchgallery').touchTouch();
-                    $('#gallery').load('/gallery');
+                    loadGallery(); // Reload gallery after successful upload
                     $('.ui-rotatable-handle').show();
                     $('.ui-icon').show();
                     $('#saveButton').html('Save Image');
@@ -106,25 +105,30 @@ $(document).ready(function() {
         });
     });
 
-    // LOG PAGE VIEW ON LOAD
-    $.ajax({
-        url: "log.php?function=page-view",
-        type: "REQUEST",
-        success: function() {}
-    });
+    // Function to load gallery
+    function loadGallery() {
+        fetch('https://giko-pfp-backend-225b23dfe9b5.herokuapp.com/gallery')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(files => {
+                const gallery = document.getElementById('gallery');
+                if (files.length > 0) {
+                    const imageList = files.filter(file => file !== '.gitkeep').map(file => `<img src="https://giko-pfp-backend-225b23dfe9b5.herokuapp.com/images/${file}" alt="${file}" style="width: 100px; height: auto;">`).join('');
+                    gallery.innerHTML = imageList;
+                } else {
+                    gallery.innerHTML = '<p>No images found.</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error loading gallery:', error);
+                const gallery = document.getElementById('gallery');
+                gallery.innerHTML = '<p>Error loading gallery. Please try again later.</p>';
+            });
+    }
 
-    // LOG PAGE FUNCTIONS
-    $(".log-function").on('click', function(e) {
-        var logfunction = $(this).data('log-function');
-        $.ajax({
-            url: "log.php?function=" + logfunction,
-            type: "REQUEST",
-            success: function() {
-                if (logfunction == "codes-userimport") { $('#downloadcodearray').submit(); }
-                if (logfunction == "codes-testcodes") { $('#downloadcodearray').submit(); }
-                if (logfunction == "template-export") { $('#export-form').submit(); }
-                if (logfunction == "template-import") { $('#import-form').submit(); }
-            }
-        });
-    });
+    loadGallery(); // Initial load
 });

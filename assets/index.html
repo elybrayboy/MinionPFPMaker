@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GIKO PFPs</title>
-    <link rel="stylesheet" href="http://127.0.0.1:5500/assets/css/csss.css">
-    <script src="http://127.0.0.1:5500/assets/js/libraries.js"></script>
-    <script src="http://127.0.0.1:5500/assets/js/js.js"></script>
+    <link rel="stylesheet" href="/assets/css/csss.css">
+    <script src="/assets/js/libraries.js"></script>
+    <script src="/assets/js/js.js"></script>
 </head>
 <body>
     <nav>
-        <img id="logo" src="http://127.0.0.1:5500/assets/img/gikomainphoto.jpg" alt="Giko Logo">
+        <img id="logo" src="/assets/img/gikomainphoto.jpg" alt="Giko Logo">
         <h3>Ready to upgrade your pfp with Giko?</h3>
         <p>Choose your Giko and starting image, then drag, resize, and rotate your Giko to fit the picture. When you're done, click "Save Image" to save to your device. By using this service, you agree to the <a href="#terms-and-conditions" style="color:#888 !Important;">terms and conditions</a>.</p>
         <h3 style="text-align:center">Choose Giko Type</h3>
         <div style="margin-top:1rem">
-            <img class="goggles" id="left" src="http://127.0.0.1:5500/assets/img/GikoBasePhoto.png">
+            <img class="goggles" id="left" src="/assets/img/GikoBasePhoto.png">
         </div>
     </nav>
 
@@ -24,13 +24,13 @@
         <div id="imageFrame">
             <div id="imageContainer">
                 <div class="box-wrapper">
-                    <div class="box" data-image="http://127.0.0.1:5500/assets/img/GikoBasePhoto.png"></div>
+                    <div class="box" data-image="/assets/img/GikoBasePhoto.png"></div>
                 </div>
             </div>
         </div>
         <button id="saveButton" class="log-function" data-log-function="save-image">Save Image</button>
         <br>
-        <img id="loading" style="display:block;width:100%;max-width:100px;margin:10px auto;opacity:0;height:auto;" src="http://127.0.0.1:5500/assets/img/LOADING-charts.gif">
+        <img id="loading" style="display:block;width:100%;max-width:100px;margin:10px auto;opacity:0;height:auto;" src="/assets/img/LOADING-charts.gif">
         <br>
         <p><b>$GIKO DONATIONS:</b> </p>
         <br><br><br>
@@ -43,7 +43,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             function loadGallery() {
-                fetch('http://localhost:3000/gallery')
+                fetch('https://giko-pfp-backend-225b23dfe9b5.herokuapp.com/gallery')
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
@@ -53,7 +53,7 @@
                     .then(files => {
                         const gallery = document.getElementById('gallery');
                         if (files.length > 0) {
-                            const imageList = files.map(file => `<img src="/images/${file}" alt="${file}" style="width: 100px; height: auto;">`).join('');
+                            const imageList = files.filter(file => file !== '.gitkeep').map(file => `<img src="https://giko-pfp-backend-225b23dfe9b5.herokuapp.com/images/${file}" alt="${file}" style="width: 100px; height: auto;">`).join('');
                             gallery.innerHTML = imageList;
                         } else {
                             gallery.innerHTML = '<p>No images found.</p>';
@@ -65,9 +65,11 @@
                         gallery.innerHTML = '<p>Error loading gallery. Please try again later.</p>';
                     });
             }
-
+    
             loadGallery(); // Initial load
         });
     </script>
+    
+    
 </body>
 </html>
