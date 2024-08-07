@@ -8,7 +8,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,img,menu,nav,sectio
 
 body, html {font-size:20px;padding:0;margin:0;min-width:810px;font-family:'Helvetica','Arial','Verdana',sans serif;}
 .ui-rotatable-handle { 	height:25px; 	width:25px;   background: url("../img/rotate.png");   background-repeat: no-repeat;   background-size: 100% 100%;   position: absolute; }
-.ui-resizable-handle {color: yellow;}
+#imageContainer .ui-resizable-se {
+   background-color: yellow !important; /* Use !important to force override */
+}
+
 .ui-rotatable-handle-sw {   bottom: -27px;   left: -27px; }
 .ui-rotatable-handle-nw {   top: -27px;   left: -27px; }
 .ui-rotatable-handle-se {   bottom: -27px;   right: -27px; }
