@@ -11,6 +11,14 @@ body, html {font-size:20px;padding:0;margin:0;min-width:810px;font-family:'Helve
 #imageContainer .ui-resizable-se {
    background-color: yellow !important; /* Use !important to force override */
 }
+.ui-resizable-se {
+   width: 16px; /* adjust the width as necessary */
+   height: 16px; /* adjust the height as necessary */
+   background-image: url('path/to/your/new/triangle/image.png'); /* point to the new or modified image */
+   background-size: contain; /* ensure the image covers the entire element */
+   background-repeat: no-repeat;
+}
+
 
 .ui-rotatable-handle-sw {   bottom: -27px;   left: -27px; }
 .ui-rotatable-handle-nw {   top: -27px;   left: -27px; }
