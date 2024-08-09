@@ -79,7 +79,7 @@ $(document).ready(function() {
             var imageData = newCanvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
 
             $.ajax({
-                url: "https://giko-pfp-backend-225b23dfe9b5.herokuapp.com/upload",
+                url: "https://minion-backend-880c3b0ca52b.herokuapp.com/upload",
                 data: { imgBase64: newCanvas.toDataURL("image/jpeg") },
                 type: "POST",
                 success: function() {
@@ -91,7 +91,7 @@ $(document).ready(function() {
                     
                     var a = document.createElement('a');
                     a.href = imageData;
-                    a.download = 'Giko-pfp.jpg';
+                    a.download = 'Jesus-Minion-pfp.jpg';
                     a.click();
                 },
                 error: function() {
@@ -107,7 +107,7 @@ $(document).ready(function() {
 
     // Function to load gallery
     function loadGallery() {
-        fetch('https://giko-pfp-backend-225b23dfe9b5.herokuapp.com/gallery')
+        fetch('https://minion-backend-880c3b0ca52b.herokuapp.com/gallery')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
