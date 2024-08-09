@@ -4,27 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GIKO PFPs</title>
-    <base href="/GikoPFPMaker/">
+    <base href="/JesusMinionPFPMaker/">
     <link rel="stylesheet" href="/assets/css/csss.css">
-    <link rel="icon" type="image/png" href="/assets/img/gikoTrans.png">
+    <link rel="icon" type="image/png" href="/assets/img/jesusminionmain.jpg">
     <script src="/assets/js/libraries.js"></script>
     <script src="/assets/js/js.js"></script>
 
 </head>
 <body>
     <nav>
-        <img id="logo" src="/assets/img/gikoTrans.png" alt="Giko Logo">
-        <h3>Ready to upgrade your pfp with Giko?</h3>
-        <p>Choose your Giko and starting image, then drag, resize, and rotate your Giko to fit the picture. When you're done, click "Save Image" to save to your device. By using this service, you agree to the <a href="#terms-and-conditions" style="color:#888 !important;">terms and conditions</a>.</p>
-        <h3 style="text-align:center">Choose Giko Type</h3>
+        <img id="logo" src="/assets/img/jesusminionmain.jpg" alt="Jesus Minion Logo">
+        <h3>As Jesus Minion's minion, you must follow his will</h3>
+        <p>Choose your own goggles and starting image, then drag, resize, and rotate your goggles to fit the picture. When you're done, click "Save Image" to save to your device. By using this service, you agree to the <a href="#terms-and-conditions" style="color:#888 !important;">terms and conditions</a>.</p>
+        <h3 style="text-align:center">Choose Goggle Type</h3>
         <div style="margin-top:1rem">
-            <img class="goggles" id="left" src="/assets/img/gikofacetrans.png">
-            <img class = "goggles" id = "left" src = "/assets/img/gikoTrans.png">
-            <img class = "goggles" id = "left" src = "/assets/img/gikolayingdown.png">
-            <img class = "goggles" id = "left" src = "/assets/img/gikoheadtransleft.png">
-            <img class = "goggles" id = "left" src = "/assets/img/gikoheadtransright.png">
-            <img class = "goggles" id = "left" src = "/assets/img/gikotransleft.png">
-            <img class = "goggles" id = "left" src = "/assets/img/gikotransright.png">
+            <img class="goggles" id="left" src="/assets/img/minionstwoeyes.png">
+            <img class="goggles" id="left" src="/assets/img/minionsoneeyed.png">
+
+            
+            
 
         </div>
     </nav>
@@ -34,7 +32,7 @@
         <div id="imageFrame">
             <div id="imageContainer">
                 <div class="box-wrapper">
-                    <div class="box" data-image="/assets/img/GikoBasePhoto.png"></div>
+                    <div class="box" data-image="/assets/img/jesusminionmain.jpg"></div>
                 </div>
             </div>
         </div>
@@ -53,7 +51,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             function loadGallery() {
-                fetch('https://giko-pfp-backend-225b23dfe9b5.herokuapp.com/gallery')
+                fetch('/https://minion-backend-880c3b0ca52b.herokuapp.com/gallery')
+                
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
