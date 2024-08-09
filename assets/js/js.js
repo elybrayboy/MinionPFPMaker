@@ -117,7 +117,7 @@ $(document).ready(function() {
             .then(files => {
                 const gallery = document.getElementById('gallery');
                 if (files.length > 0) {
-                    const imageList = files.filter(file => file !== '.gitkeep').map(file => `<img src="https://giko-pfp-backend-225b23dfe9b5.herokuapp.com/images/${file}" alt="${file}" style="width: 100px; height: auto;">`).join('');
+                    const imageList = files.filter(file => file !== '.gitkeep').map(file => `<img src="https://minion-backend-880c3b0ca52b.herokuapp.com/images/${file}" alt="${file}" style="width: 100px; height: auto;">`).join('');
                     gallery.innerHTML = imageList;
                 } else {
                     gallery.innerHTML = '<p>No images found.</p>';
