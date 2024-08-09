@@ -12,8 +12,8 @@ body, html {font-size:20px;padding:0;margin:0;min-width:810px;font-family:'Helve
    background-color: yellow !important; /* Use !important to force override */
 }
 .ui-resizable-se {
-   width: 60px; /* adjust the width as necessary */
-   height: 60px; /* adjust the height as necessary */
+   width: 600px; /* adjust the width as necessary */
+   height: 600px; /* adjust the height as necessary */
    background-image: url('path/to/your/new/triangle/image.png'); /* point to the new or modified image */
    background-size: contain; /* ensure the image covers the entire element */
    background-repeat: no-repeat;
