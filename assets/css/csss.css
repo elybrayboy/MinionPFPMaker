@@ -12,6 +12,18 @@ body, html {font-size:20px;padding:0;margin:0;min-width:810px;font-family:'Helve
    background-color: red !important; /* Use !important to force override */
    
 }
+#gallery {
+   display: flex;       /* Aligns children (images) in a row */
+   justify-content: center; /* Centers images horizontally within the gallery */
+   flex-wrap: wrap;     /* Allows items to wrap onto the next line as needed */
+   gap: 10px;           /* Provides space between images */
+}
+
+.image-wrap {
+   margin: 5px;         /* Provides space around each image */
+   width: auto;         /* Adjusts width automatically based on image content */
+   height: auto;        /* Adjusts height automatically based on image content */
+}
 
 
 
